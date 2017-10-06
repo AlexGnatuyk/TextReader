@@ -19,7 +19,7 @@ namespace TextReader
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                ResponseText = response.ToString();
+                ResponseText = response.StatusCode.ToString();
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
