@@ -9,10 +9,15 @@ namespace TextReader
 {
     class ConsoleWriter:IWrite
     {
-        public void Write(string content)
+        public static void Write(string content)
         {
-            Console.Write(content);
+            Console.WriteLine(content);
             Console.Read();
+        }
+
+        void IWrite.Write(string content)
+        {
+            Write(content);
         }
     }
 }

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="DependencyInjection\Extensions.cs" />
     <Compile Include="Interfaces\IAwersomeTextReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
