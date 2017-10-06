@@ -13,14 +13,17 @@ namespace TextReader
     class Program
     {
        public static IContainer Container { get; set; }
-        public static String content = "dom";
+       
         static void Main(string[] args)
         {
             var builder = new ContainerBuilder();
             builder.RegisterServices();
             Container = builder.Build();
-            ConsoleWriter.Write(content);
 
+
+
+            var Data = UrlReader.Read();
+            ConsoleWriter.Write(Data);
         }
     }
 }

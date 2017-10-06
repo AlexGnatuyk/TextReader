@@ -2,6 +2,6 @@
 {
     interface IAwersomeTextReader
     {
-        void Read();
+        string Read();
     }
 }
