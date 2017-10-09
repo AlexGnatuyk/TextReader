@@ -16,12 +16,27 @@ namespace TextReader
        
         static void Main(string[] args)
         {
+            Console.Write("1 - Read http status \n2 - Read from File\n\n");
+            string choose = Console.ReadLine();
             var builder = new ContainerBuilder();
-            builder.RegisterServices();
-            Container = builder.Build();
 
-            ReadAndWrite();
+            if (choose.Equals("1"))
+            {
 
+                builder.RegisterUrlReaderServices();
+                Container = builder.Build();
+
+                ReadAndWrite();
+            }
+            else
+            {
+                builder.RegisterFileReaderServices();
+                Container = builder.Build();
+
+                ReadAndWrite();
+            }
+            
+            
         }
 
         public static void ReadAndWrite()
