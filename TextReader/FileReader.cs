@@ -7,7 +7,7 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    class FileReader:IAwersomeTextReader
+    public class FileReader:IAwersomeTextReader
     {
         public static string Read()
         {

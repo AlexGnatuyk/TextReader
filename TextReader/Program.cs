@@ -12,18 +12,42 @@ namespace TextReader
 {
     class Program
     {
-       public static IContainer Container { get; set; }
+       private static IContainer Container { get; set; }
        
         static void Main(string[] args)
         {
+            Console.Write("1 - Read http status \n2 - Read from File\n\n");
+            string choose = Console.ReadLine();
             var builder = new ContainerBuilder();
-            builder.RegisterServices();
-            Container = builder.Build();
 
+            if (choose.Equals("1"))
+            {
 
+                builder.RegisterUrlReaderServices();
+                Container = builder.Build();
 
-            var Data = UrlReader.Read();
-            ConsoleWriter.Write(Data);
+                ReadAndWrite();
+            }
+            else
+            {
+                builder.RegisterFileReaderServices();
+                Container = builder.Build();
+
+                ReadAndWrite();
+            }
+            
+            
+        }
+
+        public static void ReadAndWrite()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var reader = scope.Resolve<IAwersomeTextReader>();
+                var writer = scope.Resolve<IWrite>();
+                
+                writer.Write(reader.Read());
+            }
         }
     }
 }

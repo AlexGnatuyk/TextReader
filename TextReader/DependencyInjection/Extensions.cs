@@ -10,10 +10,19 @@ namespace TextReader.DependencyInjection
 {
     public static class Extensions
     {
-        public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+        public static ContainerBuilder RegisterUrlReaderServices(this ContainerBuilder builder)
         {
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<UrlReader>().As<IAwersomeTextReader>();
+            
+
+            return builder;
+        }
+
+        public static ContainerBuilder RegisterFileReaderServices(this ContainerBuilder builder)
+        {
+            builder.RegisterType<ConsoleWriter>().As<IWrite>();
+            builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
 
             return builder;
         }
