@@ -7,7 +7,7 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    class ConsoleWriter:IWrite
+    public class ConsoleWriter:IWrite
     {
         public static void Write(string content)
         {

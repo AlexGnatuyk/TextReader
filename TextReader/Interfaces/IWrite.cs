@@ -1,6 +1,6 @@
 ﻿namespace TextReader.Interfaces
 {
-    interface IWrite
+    public interface IWrite
     {
         void Write(string content);
     }

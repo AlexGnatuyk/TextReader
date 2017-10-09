@@ -12,7 +12,7 @@ namespace TextReader
 {
     class Program
     {
-       public static IContainer Container { get; set; }
+       private static IContainer Container { get; set; }
        
         static void Main(string[] args)
         {
@@ -20,10 +20,19 @@ namespace TextReader
             builder.RegisterServices();
             Container = builder.Build();
 
+            ReadAndWrite();
 
+        }
 
-            var Data = UrlReader.Read();
-            ConsoleWriter.Write(Data);
+        public static void ReadAndWrite()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var reader = scope.Resolve<IAwersomeTextReader>();
+                var writer = scope.Resolve<IWrite>();
+                
+                writer.Write(reader.Read());
+            }
         }
     }
 }

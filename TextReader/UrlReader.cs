@@ -8,11 +8,11 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    class UrlReader:IAwersomeTextReader
+    public class UrlReader:IAwersomeTextReader
     {
         static string url = "https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15";
 
-        public static string Read()
+        private static string Read()
         {
             string ResponseText = null;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);

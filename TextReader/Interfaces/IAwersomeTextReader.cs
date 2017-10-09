@@ -1,6 +1,6 @@
 ﻿namespace TextReader.Interfaces
 {
-    interface IAwersomeTextReader
+    public interface IAwersomeTextReader
     {
         string Read();
     }

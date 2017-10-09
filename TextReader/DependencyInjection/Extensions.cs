@@ -14,6 +14,7 @@ namespace TextReader.DependencyInjection
         {
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<UrlReader>().As<IAwersomeTextReader>();
+            
 
             return builder;
         }
