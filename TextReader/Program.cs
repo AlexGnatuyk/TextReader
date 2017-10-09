@@ -43,10 +43,9 @@ namespace TextReader
         {
             using (var scope = Container.BeginLifetimeScope())
             {
-                var reader = scope.Resolve<IAwersomeTextReader>();
-                var writer = scope.Resolve<IWrite>();
+               var writer = scope.Resolve<IWrite>();
                 
-                writer.Write(reader.Read());
+                writer.Write();
             }
         }
     }

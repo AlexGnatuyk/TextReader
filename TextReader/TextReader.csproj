@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleWriter.cs" />
     <Compile Include="DependencyInjection\Extensions.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Interfaces\IAwersomeTextReader.cs" />

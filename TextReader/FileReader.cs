@@ -7,7 +7,7 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    public class FileReader:IAwersomeTextReader
+    public class FileReader:IAwersomeTextReader,IWrite
     {
         public static string Read()
         {
@@ -18,6 +18,15 @@ namespace TextReader
         string IAwersomeTextReader.Read()
         {
             return Read();
+        }
+
+        public void Write()
+        {
+            string content = Read();
+            Console.WriteLine(content);
+            Console.Read();
+
+            //throw new NotImplementedException();
         }
     }
 }
