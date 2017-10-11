@@ -7,17 +7,25 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    public class ConsoleWriter:IWrite
+    public class ConsoleWriter : IWrite
     {
-        public static void Write(string content)
+        private readonly IAwersomeTextReader reader;
+
+        public ConsoleWriter(IAwersomeTextReader reader)
         {
+            this.reader = reader;
+        }
+
+        public void Write()
+        {
+            var content = reader.Read();
             Console.WriteLine(content);
             Console.Read();
         }
 
-        void IWrite.Write(string content)
+        void IWrite.Write()
         {
-            Write(content);
+            Write();
         }
     }
 }

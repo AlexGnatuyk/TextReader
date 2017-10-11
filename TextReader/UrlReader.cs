@@ -8,7 +8,7 @@ using TextReader.Interfaces;
 
 namespace TextReader
 {
-    public class UrlReader:IAwersomeTextReader
+    public class UrlReader:IAwersomeTextReader,IWrite
     {
         static string url = "https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15";
 
@@ -32,6 +32,15 @@ namespace TextReader
         string IAwersomeTextReader.Read()
         {
             return Read();
+        }
+
+        public void Write()
+        {
+            string content = Read();
+            Console.WriteLine(content);
+            Console.Read();
+
+            //throw new NotImplementedException();
         }
     }
 }
