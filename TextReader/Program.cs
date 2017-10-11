@@ -24,11 +24,6 @@ namespace TextReader
             {
 
                 builder.RegisterUrlReaderServices();
-                var url = new DataSourceOptions
-                {
-                    urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15")
-                };
-                builder.RegisterInstance(url);
                 Container = builder.Build();
 
                 Write();
@@ -36,12 +31,6 @@ namespace TextReader
             else
             {
                 builder.RegisterFileReaderServices();
-                
-                var url = new DataSourceOptions
-                {
-                    urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt")
-                };
-                builder.RegisterInstance(url);
                 Container = builder.Build();
 
                 Write();

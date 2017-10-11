@@ -12,6 +12,12 @@ namespace TextReader.DependencyInjection
     {
         public static ContainerBuilder RegisterUrlReaderServices(this ContainerBuilder builder)
         {
+            var url = new DataSourceOptions
+            {
+                urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15")
+            };
+
+            builder.RegisterInstance(url);
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<HttpReader>().As<IAwersomeTextReader>();
 
@@ -22,6 +28,12 @@ namespace TextReader.DependencyInjection
 
         public static ContainerBuilder RegisterFileReaderServices(this ContainerBuilder builder)
         {
+            var url = new DataSourceOptions
+            {
+                urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt")
+            };
+            builder.RegisterInstance(url);
+
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
             
