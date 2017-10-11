@@ -9,10 +9,15 @@ namespace TextReader
 {
     public class FileReader:IAwersomeTextReader
     {
-        public static string Read()
+        private readonly DataSourceOptions URL;
+        public FileReader(DataSourceOptions URL)
         {
-            Uri uriAddress = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt");
-            string data = System.IO.File.ReadAllText(uriAddress.LocalPath);
+            this.URL = URL;
+        }
+        
+        public string Read()
+        {
+            string data = System.IO.File.ReadAllText(URL.urlSource.LocalPath);
             return data;
         }
 

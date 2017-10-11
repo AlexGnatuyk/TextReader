@@ -14,6 +14,7 @@ namespace TextReader.DependencyInjection
         {
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<HttpReader>().As<IAwersomeTextReader>();
+
             
 
             return builder;
@@ -23,7 +24,7 @@ namespace TextReader.DependencyInjection
         {
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
-
+            
             return builder;
         }
     }

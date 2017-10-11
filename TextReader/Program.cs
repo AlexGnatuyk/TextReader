@@ -24,27 +24,38 @@ namespace TextReader
             {
 
                 builder.RegisterUrlReaderServices();
+                var url = new DataSourceOptions
+                {
+                    urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15")
+                };
+                builder.RegisterInstance(url);
                 Container = builder.Build();
 
-                ReadAndWrite();
+                Write();
             }
             else
             {
                 builder.RegisterFileReaderServices();
+                
+                var url = new DataSourceOptions
+                {
+                    urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt")
+                };
+                builder.RegisterInstance(url);
                 Container = builder.Build();
 
-                ReadAndWrite();
+                Write();
             }
             
             
         }
 
-        public static void ReadAndWrite()
+        public static void Write()
         {
             using (var scope = Container.BeginLifetimeScope())
             {
                var writer = scope.Resolve<IWrite>();
-                
+               
                 writer.Write();
             }
         }

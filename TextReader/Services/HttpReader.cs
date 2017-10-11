@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using TextReader.Interfaces;
@@ -10,12 +11,16 @@ namespace TextReader
 {
     public class HttpReader:IAwersomeTextReader
     {
-        static string url = "https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15";
+       private readonly DataSourceOptions source;
+        public HttpReader(DataSourceOptions source)
+        {
+            this.source = source;
+        }
 
-        private static string Read()
+        private string Read()
         {
             string ResponseText = null;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(source.urlSource);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode == HttpStatusCode.OK)
             {
