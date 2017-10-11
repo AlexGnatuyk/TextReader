@@ -11,7 +11,8 @@ namespace TextReader
     {
         public static string Read()
         {
-            string data = System.IO.File.ReadAllText(@"C:\Users\st044618\Source\Repos\TextReader\TextReader\Data.txt");
+            Uri uriAddress = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt");
+            string data = System.IO.File.ReadAllText(uriAddress.LocalPath);
             return data;
         }
 

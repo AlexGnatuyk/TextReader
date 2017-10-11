@@ -13,7 +13,7 @@ namespace TextReader.DependencyInjection
         public static ContainerBuilder RegisterUrlReaderServices(this ContainerBuilder builder)
         {
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
-            builder.RegisterType<UrlReader>().As<IAwersomeTextReader>();
+            builder.RegisterType<HttpReader>().As<IAwersomeTextReader>();
             
 
             return builder;
