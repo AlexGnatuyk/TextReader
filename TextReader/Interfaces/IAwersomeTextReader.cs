@@ -1,7 +1,10 @@
-﻿namespace TextReader.Interfaces
+﻿using System;
+
+namespace TextReader.Interfaces
 {
     public interface IAwersomeTextReader
     {
-        string Read();
+        string Read(Uri uri);
+        
     }
 }

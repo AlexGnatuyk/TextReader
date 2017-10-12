@@ -9,23 +9,20 @@ namespace TextReader
 {
     public class ConsoleWriter : IWrite
     {
-        private readonly IAwersomeTextReader reader;
+        //private readonly IAwersomeTextReader reader;
 
-        public ConsoleWriter(IAwersomeTextReader reader)
-        {
-            this.reader = reader;
-        }
+        //public ConsoleWriter(IAwersomeTextReader reader)
+        //{
+        //    this.reader = reader;
+        //}
 
-        public void Write()
+        public void Write(string content)
         {
-            var content = reader.Read();
+            //var content = reader.Read();
             Console.WriteLine(content);
-            Console.Read();
+            
         }
 
-        void IWrite.Write()
-        {
-            Write();
-        }
+        
     }
 }

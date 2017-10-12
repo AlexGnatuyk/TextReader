@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IWrite.cs" />
     <Compile Include="Services\HttpReader.cs" />
+    <Compile Include="Services\ReaderService.cs" />
+    <Compile Include="Services\WriterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,16 +11,16 @@ namespace TextReader
 {
     public class HttpReader:IAwersomeTextReader
     {
-       private readonly DataSourceOptions source;
-        public HttpReader(DataSourceOptions source)
-        {
-            this.source = source;
-        }
+       //private readonly DataSourceOptions source;
+       // public HttpReader(DataSourceOptions source)
+       // {
+       //     this.source = source;
+       // }
 
-        private string Read()
+        public string Read(Uri uri)
         {
             string ResponseText = null;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(source.urlSource);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -34,10 +34,6 @@ namespace TextReader
             return ResponseText;
         }
 
-        string IAwersomeTextReader.Read()
-        {
-            return Read();
-        }
         
     }
 }

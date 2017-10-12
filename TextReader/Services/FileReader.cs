@@ -9,22 +9,18 @@ namespace TextReader
 {
     public class FileReader:IAwersomeTextReader
     {
-        private readonly DataSourceOptions URL;
-        public FileReader(DataSourceOptions URL)
-        {
-            this.URL = URL;
-        }
+        //private readonly DataSourceOptions URL;
+        //public FileReader(DataSourceOptions URL)
+        //{
+        //    this.URL = URL;
+        //}
         
-        public string Read()
+        public string Read(Uri uri)
         {
-            string data = System.IO.File.ReadAllText(URL.urlSource.LocalPath);
+            string data = System.IO.File.ReadAllText(uri.LocalPath);
             return data;
         }
 
-        string IAwersomeTextReader.Read()
-        {
-            return Read();
-        }
-        
+                
     }
 }

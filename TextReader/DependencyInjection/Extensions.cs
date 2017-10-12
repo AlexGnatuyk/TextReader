@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using TextReader.Interfaces;
+using TextReader.Services;
 
 namespace TextReader.DependencyInjection
 {
@@ -37,6 +38,14 @@ namespace TextReader.DependencyInjection
             builder.RegisterType<ConsoleWriter>().As<IWrite>();
             builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
             
+            return builder;
+        }
+
+        public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+        {
+            builder.RegisterType<ReaderService>();
+            builder.RegisterType<WriterService>();
+
             return builder;
         }
     }
