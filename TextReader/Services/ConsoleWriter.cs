@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextReader.Interfaces;
+using TextReader.Services;
 
 namespace TextReader
 {
@@ -16,10 +17,17 @@ namespace TextReader
         //    this.reader = reader;
         //}
 
-        public void Write(string content)
+        private ReaderService readerService;
+
+        internal ConsoleWriter(ReaderService readerService)
+        {
+            this.readerService = readerService;
+        }
+
+        public void Write()
         {
             //var content = reader.Read();
-            Console.WriteLine(content);
+            Console.WriteLine(readerService);
             
         }
 

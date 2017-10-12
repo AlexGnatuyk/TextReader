@@ -9,33 +9,25 @@ namespace TextReader.Services
 {
     class WriterService
     {
-        private ReaderService readerService;
+        ReaderService readerService;
         private ConsoleWriter writer;
         private Uri urlSource;
 
         public WriterService(ReaderService readerService)
         {
             this.readerService = readerService;
-            writer = new ConsoleWriter();
+            
         }
 
-        public void Create(Uri uri)
+        public ConsoleWriter Create(Uri uri)
         {
-            string prevSymb = uri.ToString().Substring(0, 1);
-            if (prevSymb == "f")
-            {
-                urlSource = new Uri(uri.ToString());
-            }
-            if (prevSymb == "h")
-            {
-                urlSource= new Uri(uri.ToString());
-            }
+            readerService.CreateReader(uri);
+            writer = new ConsoleWriter(readerService);
+            
+            return writer;
         }
 
-        public void Write()
-        {
-            writer.Write(readerService.CreateReader(urlSource));
-        }
+        
 
         
     }

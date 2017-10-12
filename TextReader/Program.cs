@@ -46,8 +46,8 @@ namespace TextReader
         {
             using (var scope = Container.BeginLifetimeScope())
             {
-               var writer = scope.Resolve<WriterService>();
-               writer.Create(uri);
+               var writerService = scope.Resolve<WriterService>();
+               var writer = writerService.Create(uri); 
                writer.Write();
                 
             }
