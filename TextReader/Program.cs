@@ -21,24 +21,8 @@ namespace TextReader
             var builder = new ContainerBuilder();
             builder.RegisterServices();
             Container = builder.Build();
-            while (true)
-            {
-                Console.Write("1 - Read http status \n2 - Read from File\n3 - Exit\n");
-                string choose = Console.ReadLine();
-                if (choose == "1")
-                {
-                    WriteFile("1");
-                    string test = "test";
-                }
-                if (choose == "2")
-                {
-                    WriteFile("2");
-                }
-                if (choose == "3")
-                {
-                    Environment.Exit(0);
-                }
-            }           
+
+            Run();
             //if (choose.Equals("1"))
             //{
 
@@ -54,24 +38,41 @@ namespace TextReader
 
             //    Write();
             //}
-            
-            
+
+
         }
 
-        public static void WriteFile(string id)
+        public static void WriteFile(Uri uri)
         {
             using (var scope = Container.BeginLifetimeScope())
             {
                var writer = scope.Resolve<WriterService>();
-                if (id == "2")
-                {
-                    writer.WriteFile();
-                }
-                if (id == "1")
-                {
-                    writer.WriteHttp();
-                }
+               writer.Create(uri);
+               writer.Write();
                 
+            }
+        }
+
+        public static void Run()
+        {
+            while (true)
+            {
+                Console.Write("1 - Read http status \n2 - Read from File\n3 - Exit\n");
+                string choose = Console.ReadLine();
+                if (choose == "1")
+                {
+                    var urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15");
+                    WriteFile(urlSource);
+                }
+                if (choose == "2")
+                {
+                    var urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt");
+                    WriteFile(urlSource);
+                }
+                if (choose == "3")
+                {
+                    Environment.Exit(0);
+                }
             }
         }
         

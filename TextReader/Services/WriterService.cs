@@ -11,6 +11,7 @@ namespace TextReader.Services
     {
         private ReaderService readerService;
         private ConsoleWriter writer;
+        private Uri urlSource;
 
         public WriterService(ReaderService readerService)
         {
@@ -18,21 +19,24 @@ namespace TextReader.Services
             writer = new ConsoleWriter();
         }
 
-        public void Create()
+        public void Create(Uri uri)
         {
-            
+            string prevSymb = uri.ToString().Substring(0, 1);
+            if (prevSymb == "f")
+            {
+                urlSource = new Uri(uri.ToString());
+            }
+            if (prevSymb == "h")
+            {
+                urlSource= new Uri(uri.ToString());
+            }
         }
 
-        public void WriteFile()
+        public void Write()
         {
-            var urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt");
             writer.Write(readerService.CreateReader(urlSource));
         }
 
-        public void WriteHttp()
-        {
-            var urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15");
-            writer.Write(readerService.CreateReader(urlSource));
-        }
+        
     }
 }
