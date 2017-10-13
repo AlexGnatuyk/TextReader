@@ -14,8 +14,9 @@ namespace TextReader
         //{
         //    this.URL = URL;
         //}
-        
-        public string Read(Uri uri)
+
+        public Uri uri { get; set; }
+        public string Read()
         {
             string data = System.IO.File.ReadAllText(uri.LocalPath);
             return data;

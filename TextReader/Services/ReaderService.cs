@@ -4,25 +4,32 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using TextReader.Interfaces;
 
 namespace TextReader.Services
 {
     class ReaderService
     {
-        public string CreateReader(Uri uri)
+        public IAwersomeTextReader CreateReader(Uri uri)
         {
             string prevSymb = uri.ToString().Substring(0, 1);
             if (prevSymb == "f")
             {
-                FileReader reader = new FileReader();
-                return reader.Read(uri);
+                FileReader reader = new FileReader
+                {
+                    uri = uri
+                };
+                return reader;
             }
             if (prevSymb == "h")
             {
-               HttpReader reader = new HttpReader();
-                return reader.Read(uri);
+                HttpReader reader = new HttpReader
+                {
+                    uri = uri
+                };
+               return reader;
             }
-            return "Error";
+            return null;
         }
     }
     

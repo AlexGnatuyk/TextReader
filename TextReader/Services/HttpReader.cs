@@ -11,13 +11,14 @@ namespace TextReader
 {
     public class HttpReader:IAwersomeTextReader
     {
-       //private readonly DataSourceOptions source;
-       // public HttpReader(DataSourceOptions source)
-       // {
-       //     this.source = source;
-       // }
+        //private readonly DataSourceOptions source;
+        // public HttpReader(DataSourceOptions source)
+        // {
+        //     this.source = source;
+        // }
 
-        public string Read(Uri uri)
+        public Uri uri { get; set; }
+        public string Read()
         {
             string ResponseText = null;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);

@@ -23,23 +23,7 @@ namespace TextReader
             Container = builder.Build();
 
             Run();
-            //if (choose.Equals("1"))
-            //{
-
-            //    builder.RegisterUrlReaderServices();
-            //    Container = builder.Build();
-
-            //    Write();
-            //}
-            //else
-            //{
-            //    builder.RegisterFileReaderServices();
-            //    Container = builder.Build();
-
-            //    Write();
-            //}
-
-
+           
         }
 
         public static void WriteFile(Uri uri)

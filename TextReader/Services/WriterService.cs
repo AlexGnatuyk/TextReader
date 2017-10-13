@@ -11,7 +11,7 @@ namespace TextReader.Services
     {
         ReaderService readerService;
         private ConsoleWriter writer;
-        private Uri urlSource;
+        
 
         public WriterService(ReaderService readerService)
         {
@@ -21,8 +21,8 @@ namespace TextReader.Services
 
         public ConsoleWriter Create(Uri uri)
         {
-            readerService.CreateReader(uri);
-            writer = new ConsoleWriter(readerService);
+            var reader = readerService.CreateReader(uri);
+            writer = new ConsoleWriter(reader);
             
             return writer;
         }

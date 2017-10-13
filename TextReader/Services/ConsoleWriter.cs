@@ -10,24 +10,18 @@ namespace TextReader
 {
     public class ConsoleWriter : IWrite
     {
-        //private readonly IAwersomeTextReader reader;
+        private readonly IAwersomeTextReader reader;
 
-        //public ConsoleWriter(IAwersomeTextReader reader)
-        //{
-        //    this.reader = reader;
-        //}
-
-        private ReaderService readerService;
-
-        internal ConsoleWriter(ReaderService readerService)
+        public ConsoleWriter(IAwersomeTextReader reader)
         {
-            this.readerService = readerService;
+            this.reader = reader;
         }
+
+             
 
         public void Write()
         {
-            //var content = reader.Read();
-            Console.WriteLine(readerService);
+            Console.WriteLine(reader.Read());
             
         }
 
