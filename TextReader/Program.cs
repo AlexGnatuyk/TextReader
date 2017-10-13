@@ -21,7 +21,7 @@ namespace TextReader
            
         }
 
-        public static void WriteFile(Uri uri)
+        public static void Write(Uri uri)
         {
             using (var scope = Container.BeginLifetimeScope())
             {
@@ -41,12 +41,12 @@ namespace TextReader
                 if (choose == "1")
                 {
                     var urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15");
-                    WriteFile(urlSource);
+                    Write(urlSource);
                 }
                 if (choose == "2")
                 {
                     var urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt");
-                    WriteFile(urlSource);
+                    Write(urlSource);
                 }
                 if (choose == "3")
                 {
