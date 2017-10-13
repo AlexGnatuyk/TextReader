@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IReaderService.cs" />
-    <Compile Include="IWriterService.cs" />
+    <Compile Include="IReaderFactory.cs" />
+    <Compile Include="IWriterFactory.cs" />
     <Compile Include="Internal\ConsoleWriter.cs" />
     <Compile Include="DependencyInjection\Extensions.cs" />
     <Compile Include="DataSourceOptions.cs" />
@@ -56,8 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ITextWriter.cs" />
     <Compile Include="Internal\HttpReader.cs" />
-    <Compile Include="Internal\ReaderService.cs" />
-    <Compile Include="Internal\WriterService.cs" />
+    <Compile Include="Internal\ReaderFactory.cs" />
+    <Compile Include="Internal\WriterFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

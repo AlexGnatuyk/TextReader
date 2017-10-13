@@ -3,7 +3,7 @@
 
 namespace TextReader.Internal
 {
-    internal class ReaderService:IReaderService
+    internal class ReaderFactory:IReaderFactory
     {
         public ITextReader Create(Uri uri)
         {

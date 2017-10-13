@@ -39,8 +39,8 @@ namespace TextReader.DependencyInjection
 
         public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
         {
-            builder.RegisterType<ReaderService>().As<IReaderService>();
-            builder.RegisterType<WriterService>().As<IWriterService>();
+            builder.RegisterType<ReaderFactory>().As<IReaderFactory>();
+            builder.RegisterType<WriterFactory>().As<IWriterFactory>();
 
             return builder;
         }

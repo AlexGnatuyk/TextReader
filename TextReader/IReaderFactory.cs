@@ -2,7 +2,7 @@
 
 namespace TextReader
 {
-    public interface IReaderService
+    public interface IReaderFactory
     {
         ITextReader Create(Uri uri);
     }

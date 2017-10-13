@@ -2,13 +2,13 @@
 
 namespace TextReader.Internal
 {
-    internal class WriterService : IWriterService
+    internal class WriterFactory : IWriterFactory
     {
-        readonly IReaderService readerService;
+        readonly IReaderFactory readerService;
         private ConsoleWriter writer;
         
 
-        public WriterService(IReaderService readerService)
+        public WriterFactory(IReaderFactory readerService)
         {
             this.readerService = readerService;
             
