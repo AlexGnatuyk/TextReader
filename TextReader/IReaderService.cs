@@ -1,7 +1,9 @@
-﻿namespace TextReader
+﻿using System;
+
+namespace TextReader
 {
     public interface IReaderService
     {
-        ITextReader Create();
+        ITextReader Create(Uri uri);
     }
 }

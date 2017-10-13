@@ -1,9 +1,9 @@
 ﻿using System;
 
 
-namespace TextReader
+namespace TextReader.Internal
 {
-    class ReaderService:ITextReader
+    internal class ReaderService:IReaderService
     {
         public ITextReader Create(Uri uri)
         {
@@ -27,10 +27,7 @@ namespace TextReader
             return null;
         }
 
-        public string Read()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
     
 }

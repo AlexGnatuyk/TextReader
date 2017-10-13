@@ -1,6 +1,6 @@
 ﻿using System;
 using Autofac;
-
+using TextReader.Internal;
 
 
 namespace TextReader.DependencyInjection
@@ -39,8 +39,8 @@ namespace TextReader.DependencyInjection
 
         public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
         {
-            builder.RegisterType<ReaderService>();
-            builder.RegisterType<WriterService>();
+            builder.RegisterType<ReaderService>().As<IReaderService>();
+            builder.RegisterType<WriterService>().As<IWriterService>();
 
             return builder;
         }

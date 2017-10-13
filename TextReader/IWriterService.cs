@@ -1,7 +1,9 @@
-﻿namespace TextReader
+﻿using System;
+
+namespace TextReader
 {
     public interface IWriterService
     {
-        ITextWriter Create();
+        ITextWriter Create(Uri uri);
     }
 }
