@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
-using TextReader.Interfaces;
-using TextReader.Services;
+
+
 
 namespace TextReader.DependencyInjection
 {
@@ -19,8 +15,8 @@ namespace TextReader.DependencyInjection
             };
 
             builder.RegisterInstance(url);
-            builder.RegisterType<ConsoleWriter>().As<IWrite>();
-            builder.RegisterType<HttpReader>().As<IAwersomeTextReader>();
+            builder.RegisterType<ConsoleWriter>().As<ITextWriter>();
+            builder.RegisterType<HttpReader>().As<ITextReader>();
 
             
 
@@ -35,8 +31,8 @@ namespace TextReader.DependencyInjection
             };
             builder.RegisterInstance(url);
 
-            builder.RegisterType<ConsoleWriter>().As<IWrite>();
-            builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
+            builder.RegisterType<ConsoleWriter>().As<ITextWriter>();
+            builder.RegisterType<FileReader>().As<ITextReader>();
             
             return builder;
         }

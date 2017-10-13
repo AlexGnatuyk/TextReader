@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-using TextReader.Interfaces;
+
 
 namespace TextReader
 {
-    public class HttpReader:IAwersomeTextReader
+    internal class HttpReader:ITextReader
     {
         //private readonly DataSourceOptions source;
         // public HttpReader(DataSourceOptions source)

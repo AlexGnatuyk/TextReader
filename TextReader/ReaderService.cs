@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using TextReader.Interfaces;
 
-namespace TextReader.Services
+
+namespace TextReader
 {
-    class ReaderService
+    class ReaderService:ITextReader
     {
-        public IAwersomeTextReader CreateReader(Uri uri)
+        public ITextReader Create(Uri uri)
         {
             string prevSymb = uri.ToString().Substring(0, 1);
             if (prevSymb == "f")
@@ -30,6 +25,11 @@ namespace TextReader.Services
                return reader;
             }
             return null;
+        }
+
+        public string Read()
+        {
+            throw new NotImplementedException();
         }
     }
     

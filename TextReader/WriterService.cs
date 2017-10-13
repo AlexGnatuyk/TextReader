@@ -5,9 +5,10 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextReader.Services
+
+namespace TextReader
 {
-    class WriterService
+    class WriterService : IWriterService
     {
         ReaderService readerService;
         private ConsoleWriter writer;
@@ -19,16 +20,17 @@ namespace TextReader.Services
             
         }
 
-        public ConsoleWriter Create(Uri uri)
+        public ITextWriter Create(Uri uri)
         {
-            var reader = readerService.CreateReader(uri);
+            var reader = readerService.Create(uri);
             writer = new ConsoleWriter(reader);
             
             return writer;
         }
 
-        
-
-        
+        public ITextWriter Create()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

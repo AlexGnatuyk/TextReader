@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextReader.Interfaces;
+
 
 namespace TextReader
 {
-    public class FileReader:IAwersomeTextReader
+    internal class FileReader:ITextReader
     {
         //private readonly DataSourceOptions URL;
         //public FileReader(DataSourceOptions URL)
