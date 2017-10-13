@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
-using TextReader.Interfaces;
+using TextReader.Internal;
+
 
 namespace TextReader.DependencyInjection
 {
@@ -12,8 +9,15 @@ namespace TextReader.DependencyInjection
     {
         public static ContainerBuilder RegisterUrlReaderServices(this ContainerBuilder builder)
         {
-            builder.RegisterType<ConsoleWriter>().As<IWrite>();
-            builder.RegisterType<UrlReader>().As<IAwersomeTextReader>();
+            var url = new DataSourceOptions
+            {
+                urlSource = new Uri("https://timetable.spbu.ru/api/v1/addresses?seating=0&capacity=15")
+            };
+
+            builder.RegisterInstance(url);
+            builder.RegisterType<ConsoleWriter>().As<ITextWriter>();
+            builder.RegisterType<HttpReader>().As<ITextReader>();
+
             
 
             return builder;
@@ -21,8 +25,22 @@ namespace TextReader.DependencyInjection
 
         public static ContainerBuilder RegisterFileReaderServices(this ContainerBuilder builder)
         {
-            builder.RegisterType<ConsoleWriter>().As<IWrite>();
-            builder.RegisterType<FileReader>().As<IAwersomeTextReader>();
+            var url = new DataSourceOptions
+            {
+                urlSource = new Uri("file://C:/Users/st044618/Source/Repos/TextReader/TextReader/Data.txt")
+            };
+            builder.RegisterInstance(url);
+
+            builder.RegisterType<ConsoleWriter>().As<ITextWriter>();
+            builder.RegisterType<FileReader>().As<ITextReader>();
+            
+            return builder;
+        }
+
+        public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+        {
+            builder.RegisterType<ReaderFactory>().As<IReaderFactory>();
+            builder.RegisterType<WriterFactory>().As<IWriterFactory>();
 
             return builder;
         }
