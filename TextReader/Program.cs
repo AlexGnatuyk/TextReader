@@ -36,7 +36,7 @@ namespace TextReader
         {
             while (true)
             {
-                Console.Write("1 - Read http status \n2 - Read from File\n3 - Exit\n");
+                Console.Write("1 - Read http status \n2 -  Read from  File\n3 - Exit\n");
                 string choose = Console.ReadLine();
                 if (choose == "1")
                 {
